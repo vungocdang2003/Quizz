@@ -1,44 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CrimeFragment"
-    android:orientation="vertical">
+    tools:context=".CrimeFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Title"
-        android:id="@+id/title"/>
+        style="?android:listSeparatorTextViewStyle"
+        android:text="@string/textview_crime_title" />
 
     <EditText
+        android:id="@+id/editText_Crime_Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter a title for the crime"
-        android:id="@+id/mEditText_CrimeTitle"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"/>
+        android:layout_marginRight="16dp"
+        android:hint="@string/edittext_crime_title" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Details"/>
+        style="?android:listSeparatorTextViewStyle"
+        android:text="@string/textView_crime_details" />
 
     <Button
+        android:id="@+id/button_Crime_Date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/mButtonDate"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"/>
+        android:layout_marginRight="16dp" />
 
     <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/mCheckBoxSolved"
-        android:text="check"
+        android:id="@+id/checkBox_Crime_Solved"
+        android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/checkbox_solved" />
 
 </LinearLayout>
