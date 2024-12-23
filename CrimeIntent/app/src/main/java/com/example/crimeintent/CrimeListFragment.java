@@ -9,6 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
@@ -34,6 +37,38 @@ public class CrimeListFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+//        if (getArguments() != null) {
+//            mParam1 = getArguments().getString(ARG_PARAM1);
+//            mParam2 = getArguments().getString(ARG_PARAM2);
+//        }
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.fragment_crime_list, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.menu_item_new_crime){
+            Crime crime = new Crime();
+            CrimeLab.get(getActivity()).addCrime(crime);
+
+            Intent intent = CrimePagerActivity.newIntent(getActivity(), crime.getmId());
+            startActivity(intent);
+        }
+        else
+            return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item);
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -94,7 +129,7 @@ public class CrimeListFragment extends Fragment {
         }
         @Override
         public void onClick(View view) {
-            Intent intent = MainActivity.newIntent(getActivity(),mCrime.getmId());
+            Intent intent = CrimePagerActivity.newIntent(getActivity(), mCrime.getmId());
             startActivity(intent);
         }
     }
@@ -113,6 +148,8 @@ public class CrimeListFragment extends Fragment {
             View view = layoutInflater.inflate(R.layout.list_item_crime, parent, false);
             return new CrimeHolder(view);
         }
+
+
 
         @Override
         public void onBindViewHolder(@NonNull CrimeHolder holder, int position) {
@@ -148,12 +185,5 @@ public class CrimeListFragment extends Fragment {
         return fragment;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+
 }

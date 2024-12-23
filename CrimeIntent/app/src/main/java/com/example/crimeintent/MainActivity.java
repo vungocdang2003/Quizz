@@ -12,7 +12,8 @@ import android.os.Bundle;
 import java.util.UUID;
 
 public class MainActivity extends SingleFragmentActivity {
-    private  static final String EXTRA_CRIME_ID= "crime_id";
+    private  static final String EXTRA_CRIME_ID= "com.example.crimeintent";
+
     public static Intent newIntent(Context context, UUID crimeId){
         Intent intent = new Intent(context,MainActivity.class);
         intent.putExtra(EXTRA_CRIME_ID, crimeId);

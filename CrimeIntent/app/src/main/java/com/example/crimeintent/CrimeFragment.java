@@ -78,6 +78,7 @@ public class CrimeFragment extends Fragment {
         View v =  inflater.inflate(R.layout.fragment_crime, container, false);
 
         mEditTextCrimeTitle = v.findViewById(R.id.editText_Crime_Title);
+        mEditTextCrimeTitle.setText(mCrime.getmTitle());
         mEditTextCrimeTitle.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
